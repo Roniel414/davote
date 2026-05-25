@@ -130,12 +130,12 @@ footer{padding:2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:f
   <div class="hero-badge"><span class="hero-badge-dot"></span>Now Live — davote.app</div>
   <h1>The <span class="cyan">fans</span> decide.<br/>The <span class="gold">artist</span> wins.</h1>
   <p class="hero-sub">DAVOTE is the real-time fan voting platform built for the music industry. Fans scan, vote live, and artists instantly know which songs move the room.</p>
-  <div class="hero-form" id="demo-form">
-    <input class="hero-input" id="hero-email" type="email" placeholder="Enter your email address"/>
-    <button class="hero-btn" onclick="submitDemo('hero')">Book a Free Demo →</button>
-  </div>
+  <form class="hero-form" id="demo-form" action="https://formspree.io/f/mojbklon" method="POST">
+    <input class="hero-input" type="email" name="email" placeholder="Enter your email address" required/>
+    <input type="hidden" name="source" value="Hero Form"/>
+    <button class="hero-btn" type="submit">Book a Free Demo →</button>
+  </form>
   <p class="hero-note">No credit card required · First demo is always free</p>
-  <div class="success-msg" id="hero-success">🎉 You're in! We'll be in touch within 24 hours.</div>
 
   <!-- PHONE MOCKUPS -->
   <div class="phones">
@@ -264,11 +264,11 @@ footer{padding:2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:f
 <div class="cta-section">
   <h2 class="cta-title">Ready to know what your fans<br/><span style="color:var(--cyan)">really</span> think?</h2>
   <p class="cta-sub">Book a free demo and see DAVOTE live in under 10 minutes.</p>
-  <div class="cta-form">
-    <input class="hero-input" id="cta-email" type="email" placeholder="Enter your email address"/>
-    <button class="hero-btn" onclick="submitDemo('cta')">Book My Free Demo →</button>
-  </div>
-  <div class="success-msg" id="cta-success" style="margin-top:1rem">🎉 You're in! We'll be in touch within 24 hours.</div>
+  <form class="cta-form" action="https://formspree.io/f/mojbklon" method="POST">
+    <input class="hero-input" type="email" name="email" placeholder="Enter your email address" required/>
+    <input type="hidden" name="source" value="Bottom CTA Form"/>
+    <button class="hero-btn" type="submit">Book My Free Demo →</button>
+  </form>
 </div>
 
 <!-- FOOTER -->
@@ -283,22 +283,7 @@ footer{padding:2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:f
 </footer>
 
 <script>
-function submitDemo(id) {
-  const input = document.getElementById(id === 'hero' ? 'hero-email' : 'cta-email');
-  const success = document.getElementById(id === 'hero' ? 'hero-success' : 'cta-success');
-  const email = input.value.trim();
-  if (!email || !email.includes('@')) {
-    input.style.borderColor = '#FF4757';
-    setTimeout(() => input.style.borderColor = '', 2000);
-    return;
-  }
-  // Send to Mailchimp or just show success
-  input.style.display = 'none';
-  input.closest('.hero-form, .cta-form').querySelector('button').style.display = 'none';
-  success.style.display = 'block';
-  // Log email for now
-  console.log('Demo request:', email);
-}
+// No JS needed - Formspree handles submissions securely
 </script>
 </body>
 </html>
